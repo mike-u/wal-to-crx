@@ -7,6 +7,7 @@
 * Apply the Chrome theme when Pywal updates
 * Choose the Pywal color -> Chrome theme colors conversion, I guessed at one to start testing but it'll probably have to change later
 
+### General notes:
 use `wal -i "path/to/img.jpg"` to generate a colorscheme
 
 color profile is then in `"~/.cache/wal/colors.sh"`
