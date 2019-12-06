@@ -2,6 +2,7 @@
 
 
 ### Todos:
+* Make the script just look at the most recent Chrome Extension directory to modify, or make it able to generate its own theme (better method)
 * CLI Chrome theme packing
 * Make the script part of Pywal somehow, or run when Pywal runs
 * Apply the Chrome theme when Pywal updates
