@@ -1,4 +1,4 @@
-import json
+import json, os
 
 waldir = "~/.cache/wal/"
 dest_file = "manifest.json"
@@ -44,8 +44,11 @@ with open(dest_file, 'r+') as f:
 		rgbcolor = hex_to_rgb(hexcolor)
 		rgbcolor = list(rgbcolor)
 		data2[waltocrx[key].split('.')[0]][waltocrx[key].split('.')[1]][waltocrx[key].split('.')[2]] = rgbcolor		# f.seek(0)        # <--- should reset file position to the beginning.
-		json.dump(data, f, indent=4)
-		f.truncate()     # remove remaining part
+
+os.remove(dest_file)	#need to overwrite it, might be better ways
+with open(dest_file, "w+") as f:	
+	json.dump(data2, f, indent=4)
+	f.truncate()     # remove remaining part
 
 # for key in waltocrx:
 # 	hexcolor = data[key.split('.')[0]][key.split('.')[1]]
