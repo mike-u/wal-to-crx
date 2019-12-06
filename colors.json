@@ -1,0 +1,28 @@
+{
+    "wallpaper": "/home/mike/Downloads/yosemite.jpg",
+    "alpha": "100",
+
+    "special": {
+        "background": "#15161b",
+        "foreground": "#f2dec8",
+        "cursor": "#f2dec8"
+    },
+    "colors": {
+        "color0": "#15161b",
+        "color1": "#9E7695",
+        "color2": "#C37C8B",
+        "color3": "#7B849A",
+        "color4": "#9B9498",
+        "color5": "#E2A29B",
+        "color6": "#F3B493",
+        "color7": "#f2dec8",
+        "color8": "#a99b8c",
+        "color9": "#9E7695",
+        "color10": "#C37C8B",
+        "color11": "#7B849A",
+        "color12": "#9B9498",
+        "color13": "#E2A29B",
+        "color14": "#F3B493",
+        "color15": "#f2dec8"
+    }
+}

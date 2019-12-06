@@ -1,0 +1,32 @@
+{
+   "description": "",
+   "key": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCb+UKTwzgGCar0pe/l0z03+g2Lq6DHQsNWLe1bAVej1+jkXZ0v5CV0AH+2FGKP4xNXYoK/SMv1DegzWmwFiajxemOl9YnGYVrQEAhU/oKWrThWZZb6duP4upWb3f6terTvzIoqL6IZX2j5ZGGlwN3lC1AMuS4VK20n10fI/vlyawIDAQAB",
+   "manifest_version": 2,
+   "name": "Flat Coloured Theme",
+   "theme": {
+      "colors": {
+         "bookmark_text": [ 44, 62, 80 ],
+         "button_background": [ 44, 62, 80, 1 ],
+         "frame": [ 26, 188, 156 ],
+         "ntp_background": [ 44, 62, 80 ],
+         "ntp_text": [ 22, 160, 133 ],
+         "tab_background_text": [ 77, 77, 77 ],
+         "tab_text": [ 0, 0, 0 ],
+         "toolbar": [ 26, 188, 156 ]
+      },
+      "images": {
+         "theme_frame": "images/theme_frame.png",
+         "theme_tab_background": "images/theme_tab_background.png",
+         "theme_toolbar": "images/theme_toolbar.png"
+      },
+      "properties": {
+         "ntp_background_alignment": "bottom",
+         "ntp_background_repeat": "no-repeat"
+      },
+      "tints": {
+         "buttons": [ 0.58, 0.29, 0.24 ]
+      }
+   },
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "1"
+}
