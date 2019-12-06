@@ -47,16 +47,16 @@ with open(dest_file, 'r+') as f:
 		json.dump(data, f, indent=4)
 		f.truncate()     # remove remaining part
 
-for key in waltocrx:
-	hexcolor = data[key.split('.')[0]][key.split('.')[1]]
-	# hexcolor = data["special"]["background"]
-	rgbcolor = hex_to_rgb(hexcolor)
-	rgbcolor = list(rgbcolor)
-	data2[waltocrx[key].split('.')[0]][waltocrx[key].split('.')[1]][waltocrx[key].split('.')[2]] = rgbcolor
-	# data2["theme"]["colors"]["ntp_background"] = rgbcolor
+# for key in waltocrx:
+# 	hexcolor = data[key.split('.')[0]][key.split('.')[1]]
+# 	# hexcolor = data["special"]["background"]
+# 	rgbcolor = hex_to_rgb(hexcolor)
+# 	rgbcolor = list(rgbcolor)
+# 	data2[waltocrx[key].split('.')[0]][waltocrx[key].split('.')[1]][waltocrx[key].split('.')[2]] = rgbcolor
+# 	# data2["theme"]["colors"]["ntp_background"] = rgbcolor
 
-with open(dest_file, "w") as jsonFile:
-    json.dump(data2, jsonFile)
+# with open(dest_file, "w") as jsonFile:
+#     json.dump(data2, jsonFile)
 
 #manifest.json should be updated now, proceed as normal packing .crx
 # this can be done from CLI as well, additional feature
