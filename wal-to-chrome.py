@@ -12,16 +12,6 @@ def hex_to_rgb(hexin):
 	# need to convert it to something like [255, 255, 255]
 	return rgb_out
 
-# def pass_to_json(json_arr,in_name,in_val):
-# 	json_arr.append("\""+in_name+"\": ")	#name
-# 	json_arr.append("["+str(in_val[0])+",")	#R
-# 	json_arr.append(" "+ str(in_val[1])+",")	#G
-# 	json_arr.append(" "+ str(in_val[2]))	#B
-# 	if in_name == "button_background":
-# 		json_arr.append(", 1")	#transparency
-# 	json_arr.append("],\n")
-# 	return json_arr
-
 waltocrx = {'special.background': 'theme.colors.ntpbackground',
 	'special.foreground': 'theme.colors.frame',
 	'colors.color1': 'theme.colors.button_background',
@@ -30,36 +20,27 @@ waltocrx = {'special.background': 'theme.colors.ntpbackground',
 	'colors.color4': 'theme.colors.tab_text',
 	'special.cursor': 'theme.colors.toolbar'}
 
+# read wal's colors
 with open(walfile, "r") as read_file:
-	data = json.load(read_file)
-
+	wal_colors = json.load(read_file)
+	
+# read manifest's colors
 with open(dest_file, "r") as read_file:
-	data2 = json.load(read_file)
+	chrome_colors = json.load(read_file)
 
-# do this in a loop
+#loop through each key, read wal's color, and put it in manifest's json
 with open(dest_file, 'r+') as f:
-	data2 = json.load(f)
+	chrome_colors = json.load(f)
 	for key in waltocrx:
-		hexcolor = data[key.split('.')[0]][key.split('.')[1]]
+		hexcolor = wal_colors[key.split('.')[0]][key.split('.')[1]]
 		rgbcolor = hex_to_rgb(hexcolor)
 		rgbcolor = list(rgbcolor)
-		data2[waltocrx[key].split('.')[0]][waltocrx[key].split('.')[1]][waltocrx[key].split('.')[2]] = rgbcolor		# f.seek(0)        # <--- should reset file position to the beginning.
+		chrome_colors[waltocrx[key].split('.')[0]][waltocrx[key].split('.')[1]][waltocrx[key].split('.')[2]] = rgbcolor		# f.seek(0)        # <--- should reset file position to the beginning.
 
 os.remove(dest_file)	#need to overwrite it, might be better ways
 with open(dest_file, "w+") as f:	
-	json.dump(data2, f, indent=None)
+	json.dump(chrome_colors, f, indent=None)
 	f.truncate()     # remove remaining part
-
-# for key in waltocrx:
-# 	hexcolor = data[key.split('.')[0]][key.split('.')[1]]
-# 	# hexcolor = data["special"]["background"]
-# 	rgbcolor = hex_to_rgb(hexcolor)
-# 	rgbcolor = list(rgbcolor)
-# 	data2[waltocrx[key].split('.')[0]][waltocrx[key].split('.')[1]][waltocrx[key].split('.')[2]] = rgbcolor
-# 	# data2["theme"]["colors"]["ntp_background"] = rgbcolor
-
-# with open(dest_file, "w") as jsonFile:
-#     json.dump(data2, jsonFile)
 
 #manifest.json should be updated now, proceed as normal packing .crx
 # this can be done from CLI as well, additional feature
