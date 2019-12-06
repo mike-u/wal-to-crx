@@ -5,6 +5,7 @@
 * CLI Chrome theme packing
 * Make the script part of Pywal somehow, or run when Pywal runs
 * Apply the Chrome theme when Pywal updates
+* Choose the Pywal color -> Chrome theme colors conversion, I guessed at one to start testing but it'll probably have to change later
 
 use `wal -i "path/to/img.jpg"` to generate a colorscheme
 
