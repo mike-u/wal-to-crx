@@ -10,6 +10,7 @@ def hex_to_rgb(hexin):
 	rgb_out = tuple(int(hexin[i:i+2], 16) for i in (0, 2, 4))
 	#rgb_out is like (255, 255, 255)
 	# need to convert it to something like [255, 255, 255]
+	rgb_out = list(rgb_out)
 	return rgb_out
 
 waltocrx = {'special.background': 'theme.colors.ntpbackground',
@@ -23,7 +24,7 @@ waltocrx = {'special.background': 'theme.colors.ntpbackground',
 # read wal's colors
 with open(walfile, "r") as read_file:
 	wal_colors = json.load(read_file)
-	
+
 # read manifest's colors
 with open(dest_file, "r") as read_file:
 	chrome_colors = json.load(read_file)
@@ -34,13 +35,12 @@ with open(dest_file, 'r+') as f:
 	for key in waltocrx:
 		hexcolor = wal_colors[key.split('.')[0]][key.split('.')[1]]
 		rgbcolor = hex_to_rgb(hexcolor)
-		rgbcolor = list(rgbcolor)
 		chrome_colors[waltocrx[key].split('.')[0]][waltocrx[key].split('.')[1]][waltocrx[key].split('.')[2]] = rgbcolor		# f.seek(0)        # <--- should reset file position to the beginning.
 
 os.remove(dest_file)	#need to overwrite it, might be better ways
 with open(dest_file, "w+") as f:	
-	json.dump(chrome_colors, f, indent=None)
+	json.dump(chrome_colors, f, indent=None)	#this puts it in a compacted form but it works, not sure if its possible to preserve original form, every other indent level adds newlines to each RGB value
 	f.truncate()     # remove remaining part
 
-#manifest.json should be updated now, proceed as normal packing .crx
+# manifest.json should be updated now, proceed as normal packing .crx
 # this can be done from CLI as well, additional feature
