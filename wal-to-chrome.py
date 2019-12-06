@@ -47,7 +47,7 @@ with open(dest_file, 'r+') as f:
 
 os.remove(dest_file)	#need to overwrite it, might be better ways
 with open(dest_file, "w+") as f:	
-	json.dump(data2, f, indent=4)
+	json.dump(data2, f, indent=None)
 	f.truncate()     # remove remaining part
 
 # for key in waltocrx:
